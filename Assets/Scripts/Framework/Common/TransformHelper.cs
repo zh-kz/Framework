@@ -30,5 +30,20 @@ namespace Framework
             }
             return null;
         }
+        
+        /// <summary>
+        /// 向目标方向旋转（线性插值）
+        /// </summary>
+        /// <param name="tf">需要转向的变换组件</param>
+        /// <param name="targetDirection">目标方向</param>
+        /// <param name="rotationSpeed">转向速度</param>
+        public static void LookAtTarget(this Transform tf, Vector3 targetDirection, float rotationSpeed)
+        {
+            if (targetDirection != Vector3.zero)
+            {
+                var targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+                tf.rotation = Quaternion.Lerp(tf.rotation, targetRotation, rotationSpeed);
+            }
+        }
     }
 }
