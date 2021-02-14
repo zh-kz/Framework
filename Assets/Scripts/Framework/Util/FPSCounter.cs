@@ -5,8 +5,7 @@ namespace Framework.Util
     public class FPSCounter : MonoSingleton<FPSCounter>
     {
         public bool showFps = false;
-        public float updateInterval = 0.1f;
-
+        
         private int frameCount;
         private float timeCount;
         private int fps;
@@ -24,9 +23,11 @@ namespace Framework.Util
             {
                 frameCount++;
                 timeCount += Time.deltaTime;
-                if(timeCount > updateInterval)
+                if(timeCount > 0.5f)
                 {
-                    fps = (int)(frameCount / (updateInterval));
+                    fps = (frameCount << 1);
+                    timeCount = 0f;
+                    frameCount = 0;
                 }
             }
         }

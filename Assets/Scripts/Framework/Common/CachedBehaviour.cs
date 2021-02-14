@@ -5,7 +5,7 @@ namespace Framework
     /// <summary>
     /// 缓存transform和gameObject
     /// </summary>
-    public class CachedBehaviour : MonoBehaviour
+    public abstract class CachedBehaviour : MonoBehaviour
     {
         private Transform _transform;
 

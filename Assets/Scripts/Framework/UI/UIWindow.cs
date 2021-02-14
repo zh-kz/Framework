@@ -8,7 +8,7 @@ namespace Framework.UI
     /// UI窗口基类：定义所有窗口共有成员（暂时只有显隐）
     /// </summary>
     [RequireComponent(typeof(CanvasGroup))]
-    public class UIWindow : MonoBehaviour
+    public abstract class UIWindow : MonoBehaviour
     {
         private CanvasGroup canvasGroup;
 
